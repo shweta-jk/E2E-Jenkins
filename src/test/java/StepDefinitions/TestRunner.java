@@ -1,4 +1,4 @@
-package StepDefinitions;
+-package StepDefinitions;
 
 import org.junit.runner.RunWith;
 
@@ -10,7 +10,7 @@ import io.cucumber.junit.CucumberOptions;
 		features="src/test/resources/features",
 		glue="StepDefinitions",
 		plugin= {"pretty",
-				"json:target/cucumber.json","html:target/HtmlReports"},
+				"json:target/cucumber-reports/Cucumber.json","html:target/HtmlReports"},
 				monochrome=true
 			
 		
