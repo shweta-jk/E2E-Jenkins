@@ -7,13 +7,13 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features="src/test/resources/features",
+		features="classpath:features",
 		glue="StepDefinitions",
-		plugin= {"pretty",
+		plugin={"pretty",
 				"json:target/cucumber-reports/Cucumber.json","junit:target/cucumber-reports/Cucumber.xml"},
-				monochrome=true
-			
-		
+		monochrome=true
+
+
 		)
 
 
