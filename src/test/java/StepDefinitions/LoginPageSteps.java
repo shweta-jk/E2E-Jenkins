@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import config.ConfigReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -51,14 +52,17 @@ public class LoginPageSteps {
 	 {
 		 
 		 lp.login_page();
-		 
+		 //String baseurl=ConfigReader.get("baseUrl");
+		//lp.login_page(baseurl);
+		
 	 }
 	 
 	 @When("user enters username and password in respective fields box")
 	 public void entertext() throws InterruptedException
 	 {
-		//lp.entercredentials("standard_user","secret_sauce");
-		 lp.entercredentials("Admin","admin123");
+		 String username = ConfigReader.get("username");
+		 String password = ConfigReader.get("password");
+		 lp.entercredentials(username, password);
 				
 	 }
 	 
@@ -70,10 +74,10 @@ public class LoginPageSteps {
 	 }
 	 
 	 
-	 @Then("user is navigated to products page")
-	 public void user_is_navigated_to_products_page()
+	 @Then("user is navigated to Dashboard page")
+	 public void user_is_navigated_to_dashboard_page()
 	 {
-		 Assert.assertTrue(lp.isProductsPageDisplayed());
+		 assert lp.isDashboardVisible() : "Dashboard is not visible after login";;
 	 }
 	 
 	 
